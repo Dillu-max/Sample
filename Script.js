@@ -1,3 +1,18 @@
-function sayHello() {
-    alert("Hello from JavaScript!");
-}
+// Contact form functionality
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const response = document.getElementById("formResponse");
+
+  if (name && email && message) {
+    response.textContent = `Thank you, ${name}! Your message has been sent.`;
+    response.style.color = "green";
+    this.reset();
+  } else {
+    response.textContent = "Please fill in all fields.";
+    response.style.color = "red";
+  }
+});
